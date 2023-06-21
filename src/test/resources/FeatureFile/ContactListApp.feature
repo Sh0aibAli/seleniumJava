@@ -1,3 +1,4 @@
+@testthis
 Feature: Test this feature
 
   Background:
@@ -19,6 +20,31 @@ Feature: Test this feature
     And User clicks on Submit
     Then alert message is displayed
 
+    Scenario Outline: Verify that an error message is displayed when trying to register with an existing username
+      Given User lands on the LoginPage
+      When User clicks on SignUp
+      Then User lands on Add User Page
+      And User enter <firstName> and <lastName>
+      When User enters email address
+      And User enters password
+      And User clicks on Submit
+      Then "Email address is already in use" alert is displayed
+
+      Examples:
+        | firstName | lastName |
+        | QT1       | Test1    |
+        | QT2       | Test2    |
+
+      Scenario: Verify that the user can delete a contact
+        Given User lands on the LoginPage
+        When User enters email address
+        And User enters password
+        And User clicks on Submit
+        When User clicks on contact
+#        Then User lands on Contact Details page
+
+
+  @runtest
   Scenario Outline: Error message should display after entering an invalid Email, Phone format
     Given User lands on the LoginPage
     When User enters email address
@@ -35,7 +61,7 @@ Feature: Test this feature
       | firstName | lastName | email       | phone  |
       | QT1       | Test1    | QT987654321 | ab1234 |
       | QT2       | Test2    | QT&^%54321  | mn9875 |
-      | QT3       | Test3    | QT987L0*(21 | 123164 |
+      | QT3       | Test3    | QT987L0*(21 | 1164   |
 #      |            |          | QOOO7L0*(21 | LHG164 |
 #      | QT5        |   Test5        | +++7L0*(21  | 123&*( |
 

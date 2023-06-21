@@ -21,6 +21,11 @@ public class LoginStepDef {
         Assert.assertTrue(contactListAppHomePage.contactListHeader());
     }
 
+    @When("User clicks on SignUp")
+    public void user_Clicks_On_SignUp() {
+        contactListAppHomePage.clickOnSignUp();
+    }
+
     @When("User enters email address")
     public void user_enters_email_address() {
         contactListAppHomePage.enterEmailAddress(PropFileHandler.readProperty("username"));

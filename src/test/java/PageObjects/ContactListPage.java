@@ -14,6 +14,7 @@ public class ContactListPage extends BaseFunctions {
     public static By contactListPageHeader = By.xpath("//h1[contains(text(),'Contact List')]");
     public static By logoutButton = By.xpath("//button[@id='logout']");
     public static By addContactButton = By.xpath("//button[@id='add-contact']");
+    public static By contacts = By.xpath("//table/thead/tr/th[contains(text(),'Name')]/following::tr/td[2]");
 
     //Action Methods
     public boolean contactListHeader() {
@@ -26,5 +27,14 @@ public class ContactListPage extends BaseFunctions {
 
     public void clickOnAddContact() {
         element(addContactButton).click();
+    }
+    public boolean contactsArePresent()
+    {
+        hardwait(2);
+        return element(contacts).isDisplayed();
+    }
+    public void clickOnContact()
+    {
+        element(contacts).click();
     }
 }

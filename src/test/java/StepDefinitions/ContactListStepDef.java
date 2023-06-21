@@ -23,4 +23,10 @@ public class ContactListStepDef {
     {
         contactListPage.clickOnAddContact();
     }
+    @When("User clicks on contact")
+    public void user_clicks_on_contact()
+    {
+        Assert.assertTrue(contactListPage.contactsArePresent());
+        contactListPage.clickOnContact();
+    }
 }
