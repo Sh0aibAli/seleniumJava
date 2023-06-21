@@ -3,6 +3,7 @@ package StepDefinitions;
 import PageObjects.AddContactPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java.en_scouse.An;
 import junit.framework.Assert;
 
@@ -47,4 +48,52 @@ public class AddContactStepDef {
         addContactPage.clickOncancelButton();
     }
 
+    @And("^User enters ([^\"]*) in the firstname field$")
+    public void user_enters_first_name_in_the_firstname_field(String firstName){
+        addContactPage.enterFirstName(firstName);
+    }
+
+    @And("^User enters ([^\"]*) in the lastname field$")
+    public void user_enters_last_name_in_the_lastname_field(String lastName){
+        addContactPage.enterLastName(lastName);
+    }
+
+    @And("^User enters ([^\"]*) in the email field$")
+    public void user_enters_email_in_the_email_field(String email){
+        addContactPage.enterEmailAddress(email);
+    }
+
+    @And("^User enters ([^\"]*) in the phone number field$")
+    public void user_enters_phoneNo_in_the_phone_number_field(String phone){
+        addContactPage.enterPhone(phone);
+    }
+
+    @And("User clicks on the existing contact need to be edited")
+    public void user_clicks_on_the_existing_contact_need_to_be_edited()
+    {
+        addContactPage.clickOnExistingContactTable();
+    }
+
+    @When("User verifies that it redirect to the contact details page")
+    public void user_verifies_that_it_redirect_to_the_contact_details_page() {
+        Assert.assertTrue(addContactPage.contactDetailHeader());
+    }
+
+    @And("User clicks on the edit contact")
+    public void user_clicks_on_the_edit_contact()
+    {
+        addContactPage.clickOnEditContactButton();
+    }
+
+    @And("^User enters ([^\"]*) in the city field$")
+    public void user_enters_city_in_the_city_field(String city)
+    {
+        addContactPage.enterCity(city);
+    }
+
+    @And("^User enters ([^\"]*) in the country field$")
+    public void user_enters_country_in_the_country_field(String country)
+    {
+        addContactPage.enterCountry(country);
+    }
 }

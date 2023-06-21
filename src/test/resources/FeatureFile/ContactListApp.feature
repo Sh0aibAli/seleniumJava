@@ -29,7 +29,7 @@ Feature: Test this feature
       And User enters password
       And User clicks on Submit
       Then "Email address is already in use" alert is displayed
-
+git check
       Examples:
         | firstName | lastName |
         | QT1       | Test1    |
@@ -66,9 +66,42 @@ Feature: Test this feature
 #      | QT5        |   Test5        | +++7L0*(21  | 123&*( |
 
 
+  Scenario Outline: verify that a logged-in user can add a new contact with valid details.
+    Given User lands on the LoginPage
+    When User enters email address
+    And User enters password
+    And User clicks on Submit
+    When User clicks On Add Contact
+    And User enters <firstName> in the firstname field
+    And User enters <lastName> in the lastname field
+    And User enters <email> in the email field
+    And User enters <phone> in the phone number field
+    And User clicks on Submit
+
+  Examples:
+  | firstName| lastName |  email          |  phone      |
+  | Preksha  |  Vora    | Abcd@gmail.com  |  6578964321 |
+  |   Raj    |  Shah    | user@gmail.com  |  1245698643 |
+  |   Rupa   |  Patel   |  rupa@gmail.com |  1245678965 |
+
+Scenario Outline: verify that a logged-in user can edit the details of an existing contact.
+  Given User lands on the LoginPage
+  When User enters email address
+  And User enters password
+  And User clicks on Submit
+  And User clicks on the existing contact need to be edited
+  Then User verifies that it redirect to the contact details page
+  And User clicks on the edit contact
+  And User enters <city> in the city field
+  And User enters <country> in the country field
+  And User clicks on Submit
+
+  Examples:
+  | city    |  country      |
+  | Mumbai  |  Maharashtra  |
 
 #  Scenario: User can add a new contacts
-#    Given User lands on the LoginPage
+#    Given L
 #    When User enters email address
 #    And User enters password
 #    And User clicks on Submit
