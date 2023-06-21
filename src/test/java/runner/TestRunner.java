@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 (
     features={"src/test/resources/FeatureFile"},
     glue={"StepDefinitions"},
-    tags="@runtest",
+    tags="@abcd",
         plugin =
         {
                 "pretty",

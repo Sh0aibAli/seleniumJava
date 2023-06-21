@@ -25,7 +25,6 @@ public class AddContactStepDef {
 
     @And("^User enter ([^\"]*) and ([^\"]*)$")
     public void user_enters_first_name_and_last_name(String firstName, String lastName) {
-        System.out.println("Step def parameters:"+firstName+" ****************"+lastName);
         addContactPage.enterFirstName(firstName);
         addContactPage.enterLastName(lastName);
     }
