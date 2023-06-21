@@ -29,7 +29,7 @@ Feature: Test this feature
       And User enters password
       And User clicks on Submit
       Then "Email address is already in use" alert is displayed
-
+git check
       Examples:
         | firstName | lastName |
         | QT1       | Test1    |
