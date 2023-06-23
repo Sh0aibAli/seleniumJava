@@ -18,7 +18,7 @@ Feature: Test this feature
     Given User lands on the LoginPage
     When User enters incorrect email address
     And User enters incorrect password
-#    And User clicks on Submit
+    And User clicks on Submit
     Then alert message is displayed
 
   Scenario Outline: Verify that an error message is displayed when trying to register with an existing username
@@ -43,8 +43,9 @@ Feature: Test this feature
     And User captures contacts
     When User clicks on contact
     Then User lands on Contact Details Page
-#        And User captures email address
     And User clicks on Delete
+    Then User lands on Contact List Page
+    Then User verifies the contact is deleted
 
 
   @runtest
