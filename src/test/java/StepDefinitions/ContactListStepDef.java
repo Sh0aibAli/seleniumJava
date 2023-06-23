@@ -42,6 +42,18 @@ public class ContactListStepDef {
 
     @And("User captures contacts")
     public void user_captures_contacts() {
-    contactListPage.captureContacts();
+    System.setProperty("numberOfContacts", contactListPage.captureContacts());
     }
+
+    @Then("User verifies the contact is deleted")
+    public void user_verifies_the_contact_is_deleted(){
+        String numOfContactsBefore = System.getProperty("numberOfContacts");
+        int numContactsBefore = Integer.parseInt(numOfContactsBefore);
+
+        String numOfContactsAfter = contactListPage.captureContacts();
+        int numContactsAfter = Integer.parseInt(numOfContactsAfter);
+
+        Assert.assertTrue(numContactsBefore>numContactsAfter);
+    }
+
 }

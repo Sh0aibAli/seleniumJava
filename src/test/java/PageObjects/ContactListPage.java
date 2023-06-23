@@ -37,16 +37,11 @@ public class ContactListPage extends BaseFunctions {
     {
         element(contacts).click();
     }
-    public void captureContacts()
+    public String captureContacts()
     {
-//        int ar[] = new int[0];
-//        for (int element : ar)
-//
-//            System.out.print(element + " ");
-        /*
-
-        Need to implement for each loo here in the above code
-
-        */
+        waitForElementToBeVisible(contacts);
+        int elementSize = driver.findElements(contacts).size();
+        System.out.println("Number of contacts are: "+elementSize);
+        return String.valueOf(elementSize);
     }
 }

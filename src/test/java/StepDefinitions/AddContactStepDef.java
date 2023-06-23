@@ -95,8 +95,4 @@ public class AddContactStepDef {
         addContactPage.enterCountry(country);
     }
 
-    @And("User captures email address")
-    public void user_captures_email_address() {
-        System.setProperty("emailAdd", contactDetailsPage.captureEmailAddress());
-    }
 }
