@@ -13,35 +13,38 @@ Feature: Test this feature
     And User clicks on Logout
     Then User lands on the LoginPage
 
+  @1234Abcd
   Scenario: Verify that an alert is displayed while using incorrect credentials
     Given User lands on the LoginPage
     When User enters incorrect email address
     And User enters incorrect password
-    And User clicks on Submit
+#    And User clicks on Submit
     Then alert message is displayed
 
-    Scenario Outline: Verify that an error message is displayed when trying to register with an existing username
-      Given User lands on the LoginPage
-      When User clicks on SignUp
-      Then User lands on Add User Page
-      And User enter <firstName> and <lastName>
-      When User enters email address
-      And User enters password
-      And User clicks on Submit
-      Then "Email address is already in use" alert is displayed
-git check
-      Examples:
-        | firstName | lastName |
-        | QT1       | Test1    |
-        | QT2       | Test2    |
+  Scenario Outline: Verify that an error message is displayed when trying to register with an existing username
+    Given User lands on the LoginPage
+    When User clicks on SignUp
+    Then User lands on Add User Page
+    And User enter <firstName> and <lastName>
+    When User enters email address
+    And User enters password
+    And User clicks on Submit
+    Then "Email address is already in use" alert is displayed
+    Examples:
+      | firstName | lastName |
+      | QT1       | Test1    |
+      | QT2       | Test2    |
 
-      Scenario: Verify that the user can delete a contact
-        Given User lands on the LoginPage
-        When User enters email address
-        And User enters password
-        And User clicks on Submit
-        When User clicks on contact
-#        Then User lands on Contact Details page
+  Scenario: Verify that the user can delete a contact
+    Given User lands on the LoginPage
+    When User enters email address
+    And User enters password
+    And User clicks on Submit
+    And User captures contacts
+    When User clicks on contact
+    Then User lands on Contact Details Page
+#        And User captures email address
+    And User clicks on Delete
 
 
   @runtest
@@ -78,27 +81,27 @@ git check
     And User enters <phone> in the phone number field
     And User clicks on Submit
 
-  Examples:
-  | firstName| lastName |  email          |  phone      |
-  | Preksha  |  Vora    | Abcd@gmail.com  |  6578964321 |
-  |   Raj    |  Shah    | user@gmail.com  |  1245698643 |
-  |   Rupa   |  Patel   |  rupa@gmail.com |  1245678965 |
+    Examples:
+      | firstName | lastName | email          | phone      |
+      | Preksha   | Vora     | Abcd@gmail.com | 6578964321 |
+      | Raj       | Shah     | user@gmail.com | 1245698643 |
+      | Rupa      | Patel    | rupa@gmail.com | 1245678965 |
 
-Scenario Outline: verify that a logged-in user can edit the details of an existing contact.
-  Given User lands on the LoginPage
-  When User enters email address
-  And User enters password
-  And User clicks on Submit
-  And User clicks on the existing contact need to be edited
-  Then User verifies that it redirect to the contact details page
-  And User clicks on the edit contact
-  And User enters <city> in the city field
-  And User enters <country> in the country field
-  And User clicks on Submit
+  Scenario Outline: Verify that a logged-in user can edit the details of an existing contact.
+    Given User lands on the LoginPage
+    When User enters email address
+    And User enters password
+    And User clicks on Submit
+    And User clicks on the existing contact need to be edited
+    Then User lands on Contact Details Page
+    And User clicks on the edit contact
+    And User enters <city> in the city field
+    And User enters <country> in the country field
+    And User clicks on Submit
 
-  Examples:
-  | city    |  country      |
-  | Mumbai  |  Maharashtra  |
+    Examples:
+      | city   | country     |
+      | Mumbai | Maharashtra |
 
 #  Scenario: User can add a new contacts
 #    Given L

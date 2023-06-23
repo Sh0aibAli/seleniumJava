@@ -24,7 +24,6 @@ public class AddContactPage extends BaseFunctions {
     public static By lastNameValidationAlert = By.xpath("//span[@id='error'][contains(text(),'lastName: Path `lastName` is required.')]");
     public static By cancelButton = By.xpath("//button[@id='cancel']");
     public static By clickOnExistingContact = By.xpath("//table[@id='myTable']/tr/td[2]");
-    public static By contactDetailsHeader_xpath = By.xpath("//h1[text()='Contact Details']");
     public static By editContactButton = By.xpath("//button[@id='edit-contact']");
     public static By cityField = By.xpath("//input[@id='city']");
     public static By countryField = By.xpath("//input[@id='country']");
@@ -75,7 +74,6 @@ public class AddContactPage extends BaseFunctions {
         hardwait(3);
         element(clickOnExistingContact).click();
     }
-    public boolean contactDetailHeader() {return element(contactDetailsHeader_xpath).isDisplayed();}
 
     public void clickOnEditContactButton()
     {
@@ -84,11 +82,13 @@ public class AddContactPage extends BaseFunctions {
 
     public void enterCity(String city)
     {
+        element(cityField).clear();
         element(cityField).sendKeys(city);
     }
 
     public void enterCountry(String country)
     {
+        element(countryField).clear();
         element(countryField).sendKeys(country);
     }
 }
