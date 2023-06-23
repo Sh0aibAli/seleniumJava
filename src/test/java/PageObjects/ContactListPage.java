@@ -37,4 +37,16 @@ public class ContactListPage extends BaseFunctions {
     {
         element(contacts).click();
     }
+    public void captureContacts()
+    {
+//        int ar[] = new int[0];
+//        for (int element : ar)
+//
+//            System.out.print(element + " ");
+        /*
+
+        Need to implement for each loo here in the above code
+
+        */
+    }
 }

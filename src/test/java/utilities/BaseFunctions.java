@@ -2,10 +2,15 @@ package utilities;
 
 import driver.DriverFactory;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.xml.sax.Locator;
 import tech.grasshopper.pdf.section.details.executable.LogMessageDisplay;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.util.Properties;
 
 public class BaseFunctions {
@@ -101,5 +106,29 @@ public class BaseFunctions {
 
     public static void logMessage(String msg) {
         Reporter.log(msg, true);
+    }
+    public void waitForElementToBeVisible(By locator)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    public static void vk_TAB(int times) throws AWTException, InterruptedException
+    {
+        Robot robot = new Robot();
+        for (int i=0; i<times; i++)
+        {
+            robot.keyPress(KeyEvent.VK_TAB);
+            robot.keyRelease(KeyEvent.VK_TAB);
+        }
+    }
+
+    public static void vk_Enter(int times) throws AWTException, InterruptedException
+    {
+        Robot robot = new Robot();
+        for (int i=0; i<times; i++)
+        {
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        }
     }
 }
