@@ -19,10 +19,10 @@
 
 		<protocol>http</protocol>
 		<!-- title of the document -->
-		<documentTitle>Azure Books Report</documentTitle>
+		<documentTitle>Contact List App Report</documentTitle>
 		<!-- report name - displayed at top-nav -->
 
-		<reportName>Azure-Books Report</reportName>
+		<reportName>Contact-List Report</reportName>
 		<!-- location of charts in the test view -->
 
 		<!-- top, bottom -->
