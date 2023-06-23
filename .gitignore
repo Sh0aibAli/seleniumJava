@@ -1,3 +1,10 @@
+/test-output
+/test output
+/src/test/resources/extent-config.xml
+/src/test/resources/cucumber.properties
+/src/test/resources/extent.properties
+/target
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
