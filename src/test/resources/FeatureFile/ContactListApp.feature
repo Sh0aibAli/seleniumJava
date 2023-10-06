@@ -66,8 +66,6 @@ Feature: Test this feature
       | QT1       | Test1    | QT987654321 | ab1234 |
       | QT2       | Test2    | QT&^%54321  | mn9875 |
       | QT3       | Test3    | QT987L0*(21 | 1164   |
-#      |            |          | QOOO7L0*(21 | LHG164 |
-#      | QT5        |   Test5        | +++7L0*(21  | 123&*( |
 
 
   Scenario Outline: verify that a logged-in user can add a new contact with valid details.
@@ -104,18 +102,4 @@ Feature: Test this feature
       | city   | country     |
       | Mumbai | Maharashtra |
 
-#  Scenario: User can add a new contacts
-#    Given L
-#    When User enters email address
-#    And User enters password
-#    And User clicks on Submit
-#    Then User lands on Contact List Page
-#    When User clicks On Add Contact
-#    Then User lands on Add Contact Page
-#    And User enter contact Details
 
-
-#  Scenario: Registration Test case
-#    Given User lands on the Homepage
-#    When User enters email address
-##    And User enters password
